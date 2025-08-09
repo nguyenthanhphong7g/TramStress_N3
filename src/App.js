@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/User/Home';
 import FormSign from './pages/Login/FormSign';
 import FormLogin from './pages/Login/FormLog';
+import Home1 from './pages/User/home1'
 function App() {
   return (
     <BrowserRouter>

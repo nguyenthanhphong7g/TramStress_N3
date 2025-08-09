@@ -5,11 +5,13 @@ import FormSign from '../Login/FormSign';
 import FormLogin from '../Login/FormLog';
 import { FiSettings, FiBell, FiUser } from 'react-icons/fi';
 import Header from '../../components/Common/Header/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom'
+import Home01 from './home1';
+import "./Home.css"
 
 function Home() {
   const sidebarItems = [
-    { icon: <FaHome />, label: "Home", path: "/" },
+    { icon: <FaHome />, label: "Home", path: "/home" },
     { icon: <FaSmile />, label: "Test cảm xúc", path: "/login" },
     { icon: <FaRobot />, label: "Chatbot AI", path: "/signin" },
     { icon: <FaRobot />, label: "Chatbot AI", path: "/signin" },
@@ -37,14 +39,14 @@ function Home() {
 
       <div className="main-content">
         <SidebarFormLayout sidebarItems={sidebarItems}>
-          <Routes>
+          {/* <Routes>
             <Route path="/login" element={<FormLogin />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Home01 />} />
             <Route path="/signin" element={<FormSign />} />
-          </Routes>
+          </Routes> */}
         </SidebarFormLayout>
         <div className="page-content">
-          <Outlet /> 
+        <Home01/>
         </div>
       </div>
 
