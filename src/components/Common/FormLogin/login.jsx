@@ -34,9 +34,7 @@ const Login = () => {
         );
 
         if (matchedUser) {
-            console.log("Đăng nhập thành công:", matchedUser);
-            alert("Đăng nhập thành công!");
-            navigate("/Home", { state: matchedUser });
+            navigate("/userlayout", { state: matchedUser });
         } else {
             alert("Email hoặc mật khẩu không đúng!");
         }
