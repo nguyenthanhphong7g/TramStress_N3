@@ -1,8 +1,7 @@
-import React from "react";
 import "./SidebarFormLayout.css";
 import { NavLink } from "react-router-dom";
 
-const SidebarFormLayout = ({ sidebarItems = [], children }) => {
+const SidebarFormLayout = ({ sidebarItems = []}) => {
   return (
     <aside className="sidebar">
       <ul className="sidebar-menu">

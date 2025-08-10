@@ -1,8 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
 import SidebarFormLayout from '../../components/Common/Sidebar/SidebarFormLayout';
 import { FaHome, FaHeart, FaBook, FaUserFriends, FaPaw, FaSmile } from 'react-icons/fa';
-import FormSign from '../../pages/Login/FormSign';
-import FormLogin from '../../pages/Login/FormLog';
 import { FiSettings, FiBell, FiUser } from 'react-icons/fi';
 import Header from '../../components/Common/Header/Header';
 import { Outlet } from 'react-router-dom';
@@ -15,8 +12,8 @@ function UserLayout() {
     { icon: <FaHeart />, label: "Góc thư giãn", path: "/#" },
     { icon: <FaBook />, label: "Góc nhật ký", path: "/#" },
     { icon: <FaUserFriends />, label: "Góc tư vấn", path: "/#" },
-    { icon: <FaPaw />, label: "Góc thú cưng", path: "/#" },
-    { icon: <FaSmile />, label: "Góc cảm xúc", path: "/#" },
+    { icon: <FaPaw />, label: "Góc thú cưng", path: "/userlayout/login" },
+    { icon: <FaSmile />, label: "Góc cảm xúc", path: "/userlayout/emotion" },
   ];
 
   const actions = [
@@ -26,14 +23,12 @@ function UserLayout() {
   ];
   const menuItems = [
     { label: 'Home', href: '/' },
-    { label: 'Góc thư giãn', href: '/#' },
-    { label: 'Góc nhật ký', href: '/#' },
-    { label: 'Góc tư vấn', href: '/#' },
-    { label: 'Góc thú cưng', href: '/#' },
-    { label: 'Góc cảm xúc', href: '/#' },
+    { label: 'Góc thư giãn', path: '/#' },
+    { label: 'Góc nhật ký', path: '/#' },
+    { label: 'Góc tư vấn', path: '/#' },
+    { label: 'Góc thú cưng', path: '/userlayout/login' },
+    { label: 'Góc cảm xúc', path: '/userlayout/emotion' },
   ];
-
-
   return (
     <div>
       <Header
@@ -41,24 +36,13 @@ function UserLayout() {
         greeting="Hôm nay bạn thế nào?"
         actions={actions}
       />
-
       <div className="main-content">
-        <SidebarFormLayout sidebarItems={sidebarItems}>
-          <Routes>
-            <Route path="/login" element={<FormLogin />} />
-            <Route path="/home" element={<UserLayout />} />
-            <Route path="/signin" element={<FormSign />} />
-          </Routes>
-        </SidebarFormLayout>
+        <SidebarFormLayout sidebarItems={sidebarItems} />
         <div className="page-content">
           <Outlet />
         </div>
       </div>
       <Footer menuItems={menuItems} />
-
-
-
-
     </div>
   );
 }
