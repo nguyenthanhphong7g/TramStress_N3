@@ -9,10 +9,10 @@ import '../layout.css'
 function UserLayout() {
   const sidebarItems = [
     { icon: <FaHome />, label: "Home", path: "/" },
-    { icon: <FaHeart />, label: "Góc thư giãn", path: "/#" },
+    { icon: <FaHeart />, label: "Góc thư giãn", path: "/userlayout/relax" },
     { icon: <FaBook />, label: "Góc nhật ký", path: "/#" },
     { icon: <FaUserFriends />, label: "Góc tư vấn", path: "/#" },
-    { icon: <FaPaw />, label: "Góc thú cưng", path: "/userlayout/login" },
+    { icon: <FaPaw />, label: "Góc thú cưng", path: "/#" },
     { icon: <FaSmile />, label: "Góc cảm xúc", path: "/userlayout/emotion" },
   ];
 
@@ -23,10 +23,10 @@ function UserLayout() {
   ];
   const menuItems = [
     { label: 'Home', href: '/' },
-    { label: 'Góc thư giãn', path: '/#' },
+    { label: 'Góc thư giãn', path: '/userlayout/relax' },
     { label: 'Góc nhật ký', path: '/#' },
     { label: 'Góc tư vấn', path: '/#' },
-    { label: 'Góc thú cưng', path: '/userlayout/login' },
+    { label: 'Góc thú cưng', path: '/#' },
     { label: 'Góc cảm xúc', path: '/userlayout/emotion' },
   ];
   return (

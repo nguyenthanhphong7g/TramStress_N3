@@ -7,17 +7,19 @@ import FormSign from './pages/Login/FormSign';
 import FormLogin from './pages/Login/FormLog';
 import Calendar from './components/Common/Calendar/Calender';
 import UserEmotion from './pages/User/UserEmotion';
+import GocThuGian from './layouts/UserLayout/GocThuGian';
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* Trang login, signup riêng layout */}
         <Route path="/" element={<FormLogin />} />
+
         <Route path="/signin" element={<FormSign />} />
 
         {/* Layout cố định cho user */}
         <Route path="/userlayout" element={<UserLayout />}>
-          <Route path="login" element={<Calendar />} />
+          <Route path="relax" element={<GocThuGian/>} />
           <Route path="emotion" element={<UserEmotion />} />
         </Route>
       </Routes>
