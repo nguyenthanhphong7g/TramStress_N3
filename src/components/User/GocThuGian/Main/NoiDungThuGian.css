@@ -79,11 +79,12 @@
     
 }
 
-.noidung-bottom div .content {
+.noidung-bottom div .content-relax {
     position: absolute;
     top: 0px;
     left: 0px;
     background-color: none;
+    
 }
 
 .noidung-bottom .baitap img {
@@ -95,10 +96,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width:95%;
+    width:100%;
     padding-left:10px;
     padding-top: 2px;
 }
+
 .baitap::before, .giaidieu::before {
   content: "";
   position: absolute;
@@ -112,34 +114,15 @@
     border-bottom:solid 1px #b7b7b7;
     width:100%;
     display: flex;
-    align-items: center;
     height:30px;
     background-color: rgba(0, 0, 0, 0.25);
+    
 }
 .noidung-bottom .giaidieu div p{
     font-size: 20px;
     padding-left: 20px;
 }
-.loihay div{
-    padding:20px;
-    position: relative;
-    flex-direction: column;
-    display:flex;
-    height:100%;
-}
-.loihay p{
-    font-size: 24px;
-    font-weight: bolder;
-    text-align: center;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.loihay h4{
-    font-size: 20px;
-    font-weight: 400;
-    text-align: right;
-    align-items: end;
-}
+
 .baitap::after, .giaidieu::after {
   content: "";
   position: absolute;
@@ -164,4 +147,40 @@
 
 .baitap:hover::after, .giaidieu:hover::after {
   opacity: 1;
+}
+/* Ẩn mặc định */
+.loihay .content-relax {
+  display: none;
+}
+
+/* Khi hiển thị */
+.loihay.show .content-relax {
+  display: flex;
+  flex-direction: column;  
+  justify-content: space-between; /* Đẩy p lên giữa và h4 xuống cuối */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+}
+
+/* Câu nói */
+.loihay.show .content-relax p {
+  font-size: 24px;
+  font-weight: bolder;
+  text-align: center;
+  margin: auto 0; /* Giúp p nằm giữa khung */
+}
+
+/* Tác giả ở góc phải dưới */
+.loihay.show .content-relax h4 {
+  font-size: 20px;
+  font-weight: 400;
+  align-self: flex-end; /* Đẩy sang phải */
+  margin: 0;
 }

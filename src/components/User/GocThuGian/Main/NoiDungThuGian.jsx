@@ -1,163 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './NoiDungThuGian.css'
 import icon_search from '../../../../assets/images/icon_search.png'
-import lake from '../../../../assets/images/lake.png'
-import rain from '../../../../assets/images/rain.png'
-import sea from '../../../../assets/images/sea.png'
-import sky from '../../../../assets/images/sky.png'
-import sunset from '../../../../assets/images/sunset.png'
-import yoga from '../../../../assets/images/yoga.png'
+import GocThuGian from './GocThuGian'
 
-const Noidung = () => {
+const NoiDung = ({ refs }) => {
+  const [activeIndex, setActiveIndex] = useState(null); // ảnh "Lời hay" đang mở
+  const [activeSection, setActiveSection] = useState(null); // phần nào đang mở
+
+  const handleClick = (sectionIdx, itemIdx, itemType) => {
+    if (itemType !== 'loihay') return;
+
+    if (activeIndex === itemIdx && activeSection === sectionIdx) {
+      setActiveIndex(null); // click lại để đóng
+      setActiveSection(null);
+    } else {
+      setActiveIndex(itemIdx);
+      setActiveSection(sectionIdx);
+    }
+  };
+
   return (
     <div className='all'>
-      <div className='noidung'>
-        <div className='noidung-top'>
-          <h4>Phổ biến</h4>
-          <div className='noidung-top-right'>
-            <h5>Xem tất cả</h5>
-            <img src={icon_search} alt="" />
+      {GocThuGian.map((section, sectionIdx) => (
+        <div key={sectionIdx} ref={refs[sectionIdx + 1]} className='noidung'>
+          <div className='noidung-top'>
+            <h4>{section.title}</h4>
+            <div className='noidung-top-right'>
+              <h5>Xem tất cả</h5>
+              <img src={icon_search} alt="" />
+            </div>
+          </div>
+
+          <div className='noidung-bottom'>
+            {section.items.map((item, itemIdx) => (
+              <div
+                key={itemIdx}
+                className={`${item.type} ${
+                  item.type === 'loihay' &&
+                  activeIndex === itemIdx &&
+                  activeSection === sectionIdx
+                    ? 'show'
+                    : ''
+                }`}
+                onClick={() => handleClick(sectionIdx, itemIdx, item.type)}
+              >
+                <img src={item.img} alt="" />
+                <div className='content-relax'>
+                  <p>{item.text}</p>
+                  {item.author && <h4>{item.author}</h4>}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="noidung-bottom">
-          <div className="baitap">
-            <img src={yoga} alt="" />
-            <div className='content'>
-              <p>Yoga giảm stress và căng thẳng cho người mới</p>
-            </div>
-          </div>
-          <div className="giaidieu">
-            <img src={rain} alt="" />
-            <div className='content'>
-              <p>Tiếng mưa thư giãn</p>
-            </div>
-          </div>
-          <div className="loihay">
-            <img src={sunset} alt="" />
-            <div className='content'>
-              <p>Không quan trọng việc bạn đi chậm thế nào, miễn là đừng bao giờ dừng lại</p>
-              <h4>Khổng Tử</h4>
-            </div>
-          </div>
-          <div className="giaidieu">
-            <img src={rain} alt="" />
-            <div className='content'>
-              <p>Tiếng mưa thư giãn</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='noidung'>
-        <div className='noidung-top'>
-          <h4>Bài tập</h4>
-          <div className='noidung-top-right'>
-            <h5>Xem tất cả</h5>
-            <img src={icon_search} alt="" />
-          </div>
-        </div>
-        <div className="noidung-bottom">
-          <div className="baitap">
-            <img src={yoga} alt="" />
-            <div className='content'>
-              <p>Yoga giảm stress và căng thẳng cho người mới</p>
-            </div>
-          </div>
-          <div className="giaidieu">
-            <img src={rain} alt="" />
-            <div className='content'>
-              <p>Tiếng mưa thư giãn</p>
-            </div>
-          </div>
-          <div className="loihay">
-            <img src={sunset} alt="" />
-            <div className='content'>
-              <p>Không quan trọng việc bạn đi chậm thế nào, miễn là đừng bao giờ dừng lại</p>
-              <h4>Khổng Tử</h4>
-            </div>
-          </div>
-          <div className="giaidieu">
-            <img src={rain} alt="" />
-            <div className='content'>
-              <p>Tiếng mưa thư giãn</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='noidung'>
-        <div className='noidung-top'>
-          <h4>Giai điệu</h4>
-          <div className='noidung-top-right'>
-            <h5>Xem tất cả</h5>
-            <img src={icon_search} alt="" />
-          </div>
-        </div>
-        <div className="noidung-bottom">
-          <div className="baitap">
-            <img src={yoga} alt="" />
-            <div className='content'>
-              <p>Yoga giảm stress và căng thẳng cho người mới</p>
-            </div>
-          </div>
-          <div className="giaidieu">
-            <img src={rain} alt="" />
-            <div className='content'>
-              <p>Tiếng mưa thư giãn</p>
-            </div>
-          </div>
-          <div className="loihay">
-            <img src={sunset} alt="" />
-            <div className='content'>
-              <p>Không quan trọng việc bạn đi chậm thế nào, miễn là đừng bao giờ dừng lại</p>
-              <h4>Khổng Tử</h4>
-            </div>
-          </div>
-          <div className="giaidieu">
-            <img src={rain} alt="" />
-            <div className='content'>
-              <p>Tiếng mưa thư giãn</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='noidung'>
-        <div className='noidung-top'>
-          <h4>Lời hay</h4>
-          <div className='noidung-top-right'>
-            <h5>Xem tất cả</h5>
-            <img src={icon_search} alt="" />
-          </div>
-        </div>
-        <div className="noidung-bottom">
-          <div className="baitap">
-            <img src={yoga} alt="" />
-            <div className='content'>
-              <p>Yoga giảm stress và căng thẳng cho người mới</p>
-            </div>
-          </div>
-          <div className="giaidieu">
-            <img src={rain} alt="" />
-            <div className='content'>
-              <p>Tiếng mưa thư giãn</p>
-            </div>
-          </div>
-          <div className="loihay">
-            <img src={sunset} alt="" />
-            <div className='content'>
-              <p>Không quan trọng việc bạn đi chậm thế nào, miễn là đừng bao giờ dừng lại</p>
-              <h4>Khổng Tử</h4>
-            </div>
-          </div>
-          <div className="giaidieu">
-            <img src={rain} alt="" />
-            <div className='content'>
-              <p>Tiếng mưa thư giãn</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
+  );
+};
 
-  )
-}
+export default NoiDung;
 
-export default Noidung
