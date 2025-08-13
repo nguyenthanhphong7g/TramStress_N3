@@ -13,7 +13,7 @@ function UserLayout() {
   const sidebarItems = [
     { icon: <FaHome />, label: "Home", path: "/" },
     { icon: <FaHeart />, label: "Góc thư giãn", path: "/#" },
-    { icon: <FaBook />, label: "Góc nhật ký", path: "/#" },
+    { icon: <FaBook />, label: "Góc nhật ký", path:"/gocnhatky" },
     { icon: <FaUserFriends />, label: "Góc tư vấn", path: "/#" },
     { icon: <FaPaw />, label: "Góc thú cưng", path: "/#" },
     { icon: <FaSmile />, label: "Góc cảm xúc", path: "/#" },
@@ -44,11 +44,11 @@ function UserLayout() {
 
       <div className="main-content">
         <SidebarFormLayout sidebarItems={sidebarItems}>
-          <Routes>
+          {/* <Routes>
             <Route path="/login" element={<FormLogin />} />
             <Route path="/home" element={<UserLayout />} />
             <Route path="/signin" element={<FormSign />} />
-          </Routes>
+          </Routes> */}
         </SidebarFormLayout>
         <div className="page-content">
           <Outlet />

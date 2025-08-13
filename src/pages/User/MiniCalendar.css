@@ -1,0 +1,60 @@
+.mini-calendar {
+  width: 350px;
+  height: 250px;
+  background-color: #d9f7ff;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* Hàng tiêu đề (MON, TUE, ...) */
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+
+/* Các ngày */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-top: 8px;
+  row-gap: 6px; /* khoảng cách giữa các dòng */
+}
+
+.calendar-day {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin: auto;
+  font-size: 13px;
+  cursor: default;
+}
+
+/* Thứ 7 */
+.calendar-day.sat {
+  color: red;
+}
+
+/* Chủ nhật */
+.calendar-day.sun {
+  color: green;
+}
+
+/* Ngày đang chọn */
+.calendar-day.selected {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+/* Ô trống */
+.calendar-day.empty {
+  color: #999;
+}

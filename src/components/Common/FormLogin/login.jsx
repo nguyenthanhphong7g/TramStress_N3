@@ -34,7 +34,7 @@ const Login = () => {
         );
 
         if (matchedUser) {
-            navigate("/userlayout", { state: matchedUser });
+            navigate("/gocnhatky", { state: matchedUser });
         } else {
             alert("Email hoặc mật khẩu không đúng!");
         }
